@@ -44,3 +44,20 @@ assert text_product_2 == "Sauce Labs Fleece Jacket"
 assert text_product_1_price == "$15.99"
 assert text_product_2_price == "$49.99"
 print("Products are equal")
+
+# Перейти в корзину
+driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+#time.sleep(10)
+
+# Проверить названия и цены товаров в корзине
+text_product_1_in_cart = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/div/div[1]/div[3]/div[2]/a/div").text
+text_product_2_in_cart = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/div/div[1]/div[4]/div[2]/a/div").text
+text_product_1_price_in_cart = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/div/div[1]/div[3]/div[2]/div[2]/div").text
+text_product_2_price_in_cart = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/div/div[1]/div[4]/div[2]/div[2]/div").text
+print(text_product_1_in_cart, text_product_1_price_in_cart, '\n', text_product_2_in_cart, text_product_2_price_in_cart, sep='')
+
+assert text_product_1_in_cart == "Sauce Labs Bolt T-Shirt"
+assert text_product_2_in_cart == "Sauce Labs Fleece Jacket"
+assert text_product_1_price_in_cart == "$15.99"
+assert text_product_2_price_in_cart == "$49.99"
+print("Products are equal in cart")
